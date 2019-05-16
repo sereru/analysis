@@ -15,11 +15,10 @@ class Agent:
         self.category = cat
         #self.x = 0.3
         #self.y = 0.3
-        self.x = random.random() #初期値は0~1でランダム
-        self.y = random.random()
+        self.x = (random.random())/10000 #初期値は0~1でランダム
+        self.y = (random.random())/10000
         self.c = 4.0
-        #self.dx = self.x
-        #self.dy = self.y
+        
     #ロジスティック関数定義 
     def logistic(self, z):
         return self.c*z*(1-z)
@@ -31,8 +30,7 @@ class Agent:
     def cat0(self): #カテゴリ0のエージェントの計算
         self.x = self.logistic(self.x) #ロジステック写像で次の座標を決める
         self.y = self.logistic(self.y)
-        #self.x += self.dx
-        #self.y += self.dy
+        
     def pustate(self): #状態の出力
         print(self.x, self.y)
 
@@ -46,7 +44,7 @@ def calcn(a): #aはagentが格納されたlist
        
 
 #実行部分
-a = [Agent(0)] #agent生成
+a = [Agent(0) for i in range(10)] #agent生成
 
 xlist = []
 ylist = []
