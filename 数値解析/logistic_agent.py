@@ -53,11 +53,11 @@ ylist = []
 for t in range(T):
     calcn(a)
     #グラフの表示
-    plt.clf()
+    plt.clf() #1つ前の点を消去
     plt.axis([0,1,0,1])
     plt.plot(xlist, ylist, ".")
     plt.pause(0.01)
-    xlist.clear() #過去の位置情報を消しておく
+    xlist.clear() 
     ylist.clear()
 plt.show()
 
